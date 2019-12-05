@@ -1,0 +1,65 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ともえーぬのブログ on ともえーぬのブログ</title>
+        <link>https://example.com/</link>
+        <description>Recent content in ともえーぬのブログ on ともえーぬのブログ</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+            <language>en</language>
+        
+        
+        
+            <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+        
+        
+            <lastBuildDate>Fri, 02 Aug 2019 11:04:49 +0800</lastBuildDate>
+        
+        <atom:link href="https://example.com/" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>About ともえーぬ</title>
+                <link>https://example.com/about/</link>
+                <pubDate>Fri, 02 Aug 2019 11:04:49 +0800</pubDate>
+                
+                <guid>https://example.com/about/</guid>
+                <description>
+
+&lt;p&gt;宮崎移住組。&lt;br /&gt;
+山の中でフリーランスWebエンジニアをしています&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/31984716?s=460&amp;amp;v=4&#34; width=&#34;240&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;作ったもの&#34;&gt;作ったもの&lt;/h3&gt;
+
+&lt;p&gt;ゆるいスケジュール共有サービス「ゆるすけ」&lt;br /&gt;
+&lt;a href=&#34;http://yurusuke.com&#34; target=&#34;_blank&#34;&gt;ゆるすけ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;得意な領域&#34;&gt;得意な領域&lt;/h3&gt;
+
+&lt;p&gt;新サービスの立ち上げフェーズ開発&lt;br /&gt;
+要件定義&lt;/p&gt;
+
+&lt;h3 id=&#34;得意な技術&#34;&gt;得意な技術&lt;/h3&gt;
+
+&lt;p&gt;Laravel / Vue.js / AWS&lt;/p&gt;
+
+&lt;h3 id=&#34;できる技術&#34;&gt;できる技術&lt;/h3&gt;
+
+&lt;p&gt;Ruby on Rails / TypeScript&lt;/p&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>Posts</title>
+                <link></link>
+                <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+                
+                <guid></guid>
+                <description></description>
+            </item>
+        
+    </channel>
+</rss>
