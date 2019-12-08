@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>宮崎 on ともえーぬのブログ</title>
+    <link>https://tomoeine.github.io/tags/%E5%AE%AE%E5%B4%8E/</link>
+    <description>Recent content in 宮崎 on ともえーぬのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    
+	<atom:link href="https://tomoeine.github.io/tags/%E5%AE%AE%E5%B4%8E/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>「宮崎に住むエンジニアさんに20の質問」に回答してみる</title>
+      <link>https://tomoeine.github.io/1/01/20questions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tomoeine.github.io/1/01/20questions/</guid>
+      <description>この記事は 宮崎IT関連勉強会 Advent Calendar 7日目の記事です
+さらになんと、当ブログの記念すべき初記事です🎉
+自己紹介も兼ねて、koogawaさん が用意してくれた 「宮崎に住むエンジニアさんに20の質問」 に回答してみます！！
+koogawa さんの回答はこちら
+mather さんの回答はこちら
+Q1: 名前orハンドルネームを教えてください（よければ由来も教えてください！） ともえ
+または
+ともえーぬ（tomoeine）
+で活動してます！
+「ともえ」が本名で、「ともえーぬ」はフランス人風（？）にしたハンドルネームです
+Q2: 宮崎ご出身ですか？ いいえ、出身は東京です。 趣味の岩登りをきっかけに、2016年に夫婦で移住してきました。
+Q3: 宮崎の好きなところは？（場所や食べ物などなんでも）  ご飯が美味しい 気候も人も暖かい ほどよく田舎 良い岩がたくさんある オープンな雰囲気  Q4: 宮崎に住んで不便に感じることはありますか？ 服が買える場所がイオンしかない・・・普段はほぼユニクロ。
+アミュプラザにはめっちゃ期待してます！
+Q5: 欲しい技術書はいつもどこで買っていますか？ Amazon 一択です
+Q6. プログラミング以外の趣味や特技があれば教えてください ボルダリングやってます。
+「ボルダリング」と聞くとインドアな壁登りを想像される方が多いと思いますが、 実は自然の岩を登るのもボルダリングです。
+秋〜春は毎週延岡方面に出かけます！
+Q7: よければエンジニア歴を教えてください 15歳ごろ HP制作の楽しさに目覚める。
+大好きだったアメリカのメタルバンド IMPELLITERI のファンサイトを作って Yahoo!JAPAN に掲載されたのが初めての成功体験。
+フリーCGIのカスタマイズで Perl を触ったリモした。
+大学生 Web 広告屋でアルバイト。
+素の PHP で簡単なシステムを構築した。
+会社員（東京時代） 東京で大手 SIer に就職。 VBScript、VB.</description>
+    </item>
+    
+  </channel>
+</rss>
