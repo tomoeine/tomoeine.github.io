@@ -33,7 +33,7 @@
                 <guid>https://tomoeine.github.io/about/</guid>
                 <description>
 
-&lt;p&gt;宮崎移住組。&lt;br /&gt;
+&lt;p&gt;東京→宮崎移住組。&lt;br /&gt;
 山の中でフリーランスWebエンジニアをしています&lt;/p&gt;
 
 &lt;figure&gt;
@@ -43,21 +43,38 @@
 
 &lt;h3 id=&#34;作ったもの&#34;&gt;作ったもの&lt;/h3&gt;
 
+&lt;p&gt;みんなでポモドーロ・テクニックするサービス「minporo」
+&lt;a href=&#34;https://minporo.com&#34; target=&#34;_blank&#34;&gt;minporo&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;ゆるいスケジュール共有サービス「ゆるすけ」&lt;br /&gt;
-&lt;a href=&#34;http://yurusuke.com&#34; target=&#34;_blank&#34;&gt;ゆるすけ&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://yurusuke.com&#34; target=&#34;_blank&#34;&gt;ゆるすけ&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;得意な領域&#34;&gt;得意な領域&lt;/h3&gt;
 
-&lt;p&gt;新サービスの立ち上げフェーズ開発&lt;br /&gt;
-要件定義&lt;/p&gt;
+&lt;p&gt;新サービスの立ち上げフェーズ開発
+システム立案・要件定義&lt;/p&gt;
 
 &lt;h3 id=&#34;得意な技術&#34;&gt;得意な技術&lt;/h3&gt;
 
-&lt;p&gt;Laravel / Vue.js / AWS&lt;/p&gt;
+&lt;p&gt;Laravel / Vue.js / TypeScript / Ruby on Rails / AWS&lt;/p&gt;
 
-&lt;h3 id=&#34;できる技術&#34;&gt;できる技術&lt;/h3&gt;
+&lt;h3 id=&#34;経歴&#34;&gt;経歴&lt;/h3&gt;
 
-&lt;p&gt;Ruby on Rails / TypeScript&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;15歳前後より、海外バンドのファンサイトや個人HPを制作。&lt;/li&gt;
+&lt;li&gt;大学入学後、アルバイト先の Web 広告会社で、広告ページ制作の傍ら PHP で自社サービスを構築。&lt;/li&gt;
+&lt;li&gt;大学卒業後、大手 SIer に入社し、企画・要件定義・プロジェクトマネジメントなど上流工程を中心に推進。企業グループの賞を獲得。&lt;/li&gt;
+&lt;li&gt;2016年に宮崎移住し、Web系自社サービス企業に転職。PHP・AWS などを用いて開発。&lt;/li&gt;
+&lt;li&gt;2018年にフリーランス化、東京・宮崎・沖縄の企業の0→1立ち上げフェーズを中心に携わる。Laravel, Ruby on Rails, Vue.js などを利用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;アウトプット&#34;&gt;アウトプット&lt;/h3&gt;
+
+&lt;p&gt;「てげほげ」のメンバーとして、勉強会シリーズ「Webナイト宮崎」を運営しています。
+&lt;a href=&#34;https://tegehoge.connpass.com/&#34; target=&#34;_blank&#34;&gt;https://tegehoge.connpass.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/tomoeine&#34; target=&#34;_blank&#34;&gt;Qiita&lt;/a&gt;
+&lt;a href=&#34;https://www.slideshare.net/TomoeTeshima/presentations&#34; target=&#34;_blank&#34;&gt;SlideShare&lt;/a&gt;&lt;/p&gt;
 </description>
             </item>
         
