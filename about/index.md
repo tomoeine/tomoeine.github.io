@@ -8,7 +8,7 @@
 
 ### 作ったもの
 
-みんなでポモドーロ・テクニックするサービス「minporo」
+みんなでポモドーロ・テクニックするサービス「minporo」  
 [minporo](https://minporo.com)
 
 ゆるいスケジュール共有サービス「ゆるすけ」  
@@ -36,5 +36,5 @@ Laravel / Vue.js / TypeScript / Ruby on Rails / AWS
 「てげほげ」のメンバーとして、勉強会シリーズ「Webナイト宮崎」を運営しています。
 https://tegehoge.connpass.com/
 
-[Qiita](https://qiita.com/tomoeine)
+[Qiita](https://qiita.com/tomoeine)  
 [SlideShare](https://www.slideshare.net/TomoeTeshima/presentations)
