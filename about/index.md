@@ -14,6 +14,9 @@
 ゆるいスケジュール共有サービス「ゆるすけ」  
 [ゆるすけ](https://yurusuke.com)
 
+Year Progress のオマージュ「Life Progress」
+[Life Progress](https://life-pg.web.app/)
+
 ### 得意な領域
 
 新サービスの立ち上げフェーズ開発  
@@ -21,7 +24,7 @@
 
 ### 得意な技術
 
-Laravel / Vue.js / TypeScript / Ruby on Rails / AWS 
+Laravel(PHP) / Vue.js(TypeScript) / Ruby on Rails / AWS 
 
 ### 経歴
 
