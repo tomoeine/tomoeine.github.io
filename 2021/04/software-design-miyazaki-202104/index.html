@@ -40,7 +40,7 @@
     
         "keywords": "勉強会, ICONIXプロセス",
     
-    "wordcount":  233 ,
+    "wordcount":  242 ,
     "url": "https:\/\/tomoeine.github.io\/2021\/04\/software-design-miyazaki-202104\/",
     
         "datePublished": "2021-04-17T08:29:47\u002b09:00",
@@ -144,7 +144,7 @@
             </div>
             <div class="post-meta-other">
                 <i class="far fa-calendar-alt fa-fw"></i><time datetime=2021-04-17>2021-04-17</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>about 233 words&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>about 242 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>2 min&nbsp;</div>
         </div>
 
@@ -184,12 +184,30 @@
             
             
 
+<a class="post-dummy-target" id="目次"></a><h2>目次</h2>
+
+<ul>
+<li><a href="#目次">目次</a></li>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#序文">序文</a></li>
+<li><a href="#iconixプロセスの実践">ICONIXプロセスの実践</a>
+
+<ul>
+<li><a href="#モデルを洗い出す">モデルを洗い出す</a></li>
+<li><a href="#ユースケース図を書く">ユースケース図を書く</a></li>
+<li><a href="#ユースケース記述を書く">ユースケース記述を書く</a></li>
+<li><a href="#ロバストネス図を書く">ロバストネス図を書く</a></li>
+</ul></li>
+<li><a href="#まとめ感想">まとめ・感想</a></li>
+<li><a href="#おわりに">おわりに</a></li>
+</ul>
+
 <a class="post-dummy-target" id="はじめに"></a><h2>はじめに</h2>
 
 <p>この記事は、とあるプチ勉強会の中で、演習的に <strong>ICONIXプロセス</strong> を実践してみた記録です。<br />
 ICONIXプロセス・ユースケース駆動開発について学びたい方は <a href="https://amzn.to/31YQoMj" target="_blank">ユースケース駆動開発実践ガイド</a> をぜひ読んでみてください。</p>
 
-<p>ざっくり概要を知りたい方は、稚拙ですが自分の以下記事もどうぞ。<br />
+<p>ざっくり概要を知りたい方は、よろしければ以下の記事もご活用ください。<br />
 <a href="https://zenn.dev/tomoeine/articles/2babb554aa0478" target="_blank">https://zenn.dev/tomoeine/articles/2babb554aa0478</a></p>
 
 <a class="post-dummy-target" id="序文"></a><h2>序文</h2>
@@ -393,9 +411,12 @@ keeped_bottle を登録するときは、まずボトルの写真を撮り、次
 </div>
 <a class="post-dummy-target" id="ロバストネス図-ボトルをキープする"></a><h4>ロバストネス図「ボトルをキープする」</h4>
 
-<p>特に以下の点に留意して作成します。
-- バウンダリ（画面）、エンティティ、コントローラの3種類のオブジェクトを描く
-- バウンダリとエンティティを名詞、コントローラを動詞として扱い、「名詞-名詞」で繋がらないようにする（「名詞-動詞」「動詞-動詞」はOK）</p>
+<p>特に以下の点に留意して作成します。</p>
+
+<ul>
+<li>バウンダリ（画面）、エンティティ、コントローラの3種類のオブジェクトを描く</li>
+<li>バウンダリとエンティティを名詞、コントローラを動詞として扱い、「名詞-名詞」で繋がらないようにする（「名詞-動詞」「動詞-動詞」はOK）</li>
+</ul>
 
 <p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/robustness_keep-bottle.jpg alt=ロバストネス図「ボトルをキープする」 class=lazyload><figcaption class=image-caption>ロバストネス図「ボトルをキープする」</figcaption></figure></p>
 
@@ -403,7 +424,7 @@ keeped_bottle を登録するときは、まずボトルの写真を撮り、次
 
 <p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/robustness_keep-bottle.png alt=ロバストネス図「ボトルをキープする」 class=lazyload><figcaption class=image-caption>ロバストネス図「ボトルをキープする」</figcaption></figure></p>
 
-<p>勉強会ではいきなり図を書き始めてアワアワと混乱しましたが、PlantUML で書いてみて、最初にオブジェクトを洗い出しておけば書きやすかったのかーと気付きました。次回に生かそう。</p>
+<p>勉強会ではいきなり図を書き始めてアワアワと混乱しましたが、PlantUML で書いてみて、<strong>最初にオブジェクトを洗い出し</strong>ておけば書きやすかったのかーと気付きました。次回に生かそう。</p>
 
 <a class="post-dummy-target" id="まとめ-感想"></a><h2>まとめ・感想</h2>
 
