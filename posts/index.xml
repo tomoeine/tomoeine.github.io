@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 20 Dec 2019 08:29:47 +0900</lastBuildDate><atom:link href="https://tomoeine.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 08:29:47 +0900</lastBuildDate><atom:link href="https://tomoeine.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ICONIXプロセスを（途中まで）実践してみた</title>
+      <link>https://tomoeine.github.io/2021/04/software-design-miyazaki-202104/</link>
+      <pubDate>Sat, 17 Apr 2021 08:29:47 +0900</pubDate>
+      
+      <guid>https://tomoeine.github.io/2021/04/software-design-miyazaki-202104/</guid>
+      <description>はじめに この記事は、とあるプチ勉強会の中で、演習的に ICONIXプロセス を実践してみた記録です。
+ICONIXプロセス・ユースケース駆動開発について学びたい方は ユースケース駆動開発実践ガイド をぜひ読んでみてください。
+ざっくり概要を知りたい方は、稚拙ですが自分の以下記事もどうぞ。
+https://zenn.dev/tomoeine/articles/2babb554aa0478
+序文 きっかけは、宮崎のコワーキングスペース ATOMica で作業していたとある日のこと。
+その日は、誕生日プレゼントとしていただいたばかりの「ユースケース駆動開発実践ガイド」を傍らに置いて作業していました。（Nさんありがとうございます！）
+
+そこに通りがかった宮崎きってのつよつよエンジニアEさんが「こういうテーマのプチ勉強会したいよね」と。
+これはやるしかない！
+ということで宮崎IT関連勉強会の Slack で参加者を募り、勉強会開催に漕ぎ着けたのでした。
+第1回は、私が本を読んだアウトプットとして書いた 前段のまとめ記事 を話の入口にしつつ、Eさん＆Kさんがどんどん話を拡げてくださり、テスト駆動やDDDの話を「なるほど、なるほど」とお勉強させていただきました。
+そして、本記事本題の第2回。 今回はざっくり、実際に何か手を動かしたいよね〜と話していましたが、ノーテーマ。 その場で案を募ったところ、参加者の一人のIさんが「居酒屋のボトルキープを管理するアプリという以前からのアイデアがあるんだけどどう？」とご提案くださり、IさんをドメインエキスパートとしてICONIXプロセスを進めてみる会となったのでした。
+ICONIXプロセスの実践 さあ、ここからがこの記事の本題です。
+モデルを洗い出す まずはドメインエキスパートのIさんに、ざっくりとした要求をヒアリングします
+要求
+1 2 3  お客さんが居酒屋やスナックに行き、ボトルキープしたらそれを記録する。 お客さんは後でキープしたボトルを確認する。 お店側も、誰がどのボトルをキープしたか確認する。   この要求を元に、以下のモデルを洗い出しました。
+この時点ではのモデルはドラフト版で、後で修正します。
+ restraunt(居酒屋やスナックの店舗) customer(ボトルキープするお客さん) keeped_bottle(キープされたボトル)  ここで洗い出したモデルは、後のフェーズでもずっと使う「用語集」にもなります（DDDで言う「ユビキタス言語」）。
+ユースケース図を書く ユースケース駆動開発実践ガイドの中では「ユースケース記述の書き方」を中心に説明されていますが、これは各ユースケースを詳細に説明するためのもの ユースケースを洗い出すために、まずはユースケース図を作ります。
+ユースケース作成にあたり、さらに詳しく要求を洗い出していきます。
+さらに詳しい要求 1 2 3 4 5 6 7 8 9  customer は keeped_bottle を記録する前に、システムへアカウント登録する。 restraunt でボトルキープしたら、アプリにそれを登録する。 restraunt が既にシステムに登録されていたらそこから選択し、登録されていなかったら自分で新たに追加する。 また、再度 restraunt に訪れ、ボトルの中身を飲みきったり残量が減った場合には、それを記録する。 restraunt も、自分自身のお店を登録する。 さらに、お店の管理者として申請する。 restraunt の管理者として正しいかどうかは administrator が確認し、承認する。 restraunt は、管理者になっているお店の keeped_bottle一覧を確認する。 キープから一定期間経過した場合に、restraunt は keeped_bottle を捨てることがある。   後々クラス名としてそのまま使えるようにと英語でモデル名を命名していましたが、日本語のユースケースの中で使うのは結構難しいですね。。</description>
+    </item>
+    
     <item>
       <title>「SIer でスキルが身につかない？」を、Web系フリーランスになった今振り返る</title>
       <link>https://tomoeine.github.io/2019/12/sier-career/</link>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ICONIXプロセスを（途中まで）実践してみた | ともえーぬのブログ</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noodp" />
+<meta name="Description" content="宮崎のプチ勉強会で「ICONIXプロセス」を実践してみました。モデル・ユースケース・ロバストネス図を作成する過程をメモしています。">
+<link rel="prev" href="https://tomoeine.github.io/2019/12/sier-career/" />
+<link rel="canonical" href="https://tomoeine.github.io/2021/04/software-design-miyazaki-202104/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ICONIXプロセスを（途中まで）実践してみた"/>
+<meta name="twitter:description" content="宮崎のプチ勉強会で「ICONIXプロセス」を実践してみました。モデル・ユースケース・ロバストネス図を作成する過程をメモしています。"/>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "ICONIXプロセスを（途中まで）実践してみた",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/tomoeine.github.io\/2021\/04\/software-design-miyazaki-202104\/"
+    },
+    
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:\/\/tomoeine.github.io\/cover.png",
+            "width":  800 ,
+            "height":  600 
+        },
+    
+    "genre": "posts",
+    
+        "keywords": "勉強会, ICONIXプロセス",
+    
+    "wordcount":  231 ,
+    "url": "https:\/\/tomoeine.github.io\/2021\/04\/software-design-miyazaki-202104\/",
+    
+        "datePublished": "2021-04-17T08:29:47\u002b09:00",
+    
+    
+        "dateModified": "2021-04-17T08:29:47\u002b09:00",
+    
+    
+        "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    
+    
+        "publisher": {
+            "@type": "Organization",
+            "name": "XXXX",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/tomoeine.github.io\/logo.png",
+            "width":  127 ,
+            "height":  40 
+            }
+        },
+    
+    
+    "description": "宮崎のプチ勉強会で「ICONIXプロセス」を実践してみました。モデル・ユースケース・ロバストネス図を作成する過程をメモしています。"
+    }
+    </script>
+<link rel="stylesheet" href="/css/style.min.css">
+<link rel="stylesheet" href="/css/lib/fontawesome-free/all.min.min.css">
+
+<link rel="stylesheet" href="/css/lib/animate/animate.min.min.css">
+
+    </head>
+    <body>
+        <script>
+            window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            window.isDark && document.body.classList.add('dark-theme');
+        </script>
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-header animated bounceIn">
+            <a href="https://tomoeine.github.io/">ともえーぬのブログ</a>
+        </div>
+        <div class="navbar-menu">
+            
+            
+                <a class="menu-item" href="https://tomoeine.github.io/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/tags" title="">Tags</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/categories" title="">Categories</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/about" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile">
+     <div class="navbar-container">
+        <div class="navbar-header">
+            <div class="navbar-header-title animated bounceIn">
+                <a href="https://tomoeine.github.io/">ともえーぬのブログ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="navbar-menu" id="mobile-menu">
+            
+            
+                <a class="menu-item" href="https://tomoeine.github.io/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/tags" title="">Tags</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/categories" title="">Categories</a>
+            
+                <a class="menu-item" href="https://tomoeine.github.io/about" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav><main class="main">
+                <div class="container">
+                    
+    
+    
+    
+
+    <article class="post-warp">
+        <h1 class="post-title animated flipInX">ICONIXプロセスを（途中まで）実践してみた</h1>
+
+        <div class="post-meta">
+            <div class="post-meta-main">
+                <a class="author" href="https://tomoeine.github.io/" rel="author"><i class="fas fa-user-circle fa-fw"></i>ともえ&nbsp;</a>
+                <span class="post-category">
+                        included in
+                        <i class="far fa-folder fa-fw"></i><a href="https://tomoeine.github.io/categories/%E5%8B%89%E5%BC%B7%E4%BC%9A/">勉強会</a>
+                            
+                    </span>
+            </div>
+            <div class="post-meta-other">
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime=2021-04-17>2021-04-17</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>about 231 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>2 min&nbsp;</div>
+        </div>
+
+        
+            <div class="post-featured-image">
+                <img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/robustness_keep-bottle.jpg alt="featured image" class="lazyload">
+            </div>
+        
+
+        
+
+        <div class="post-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+<a class="post-dummy-target" id="はじめに"></a><h2>はじめに</h2>
+
+<p>この記事は、とあるプチ勉強会の中で、演習的に <strong>ICONIXプロセス</strong> を実践してみた記録です。<br />
+ICONIXプロセス・ユースケース駆動開発について学びたい方は <a href="https://amzn.to/31YQoMj" target="_blank">ユースケース駆動開発実践ガイド</a> をぜひ読んでみてください。</p>
+
+<p>ざっくり概要を知りたい方は、稚拙ですが自分の以下記事もどうぞ。<br />
+<a href="https://zenn.dev/tomoeine/articles/2babb554aa0478" target="_blank">https://zenn.dev/tomoeine/articles/2babb554aa0478</a></p>
+
+<a class="post-dummy-target" id="序文"></a><h2>序文</h2>
+
+<p>きっかけは、宮崎のコワーキングスペース ATOMica で作業していたとある日のこと。<br />
+その日は、誕生日プレゼントとしていただいたばかりの「ユースケース駆動開発実践ガイド」を傍らに置いて作業していました。（Nさんありがとうございます！）</p>
+
+<p><a target="_blank"  href="https://www.amazon.co.jp/gp/product/B01B5MX2TC/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B01B5MX2TC&linkCode=as2&tag=tomoenotumeko-22&linkId=275f2b041c883e43a01ed1ed779be0ab"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B01B5MX2TC&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=tomoenotumeko-22" ></a></p>
+
+<p>そこに通りがかった宮崎きってのつよつよエンジニアEさんが「こういうテーマのプチ勉強会したいよね」と。<br />
+これはやるしかない！<br />
+ということで宮崎IT関連勉強会の Slack で参加者を募り、勉強会開催に漕ぎ着けたのでした。</p>
+
+<p>第1回は、私が本を読んだアウトプットとして書いた <a href="https://zenn.dev/tomoeine/articles/2babb554aa0478" target="_blank">前段のまとめ記事</a> を話の入口にしつつ、Eさん＆Kさんがどんどん話を拡げてくださり、テスト駆動やDDDの話を「なるほど、なるほど」とお勉強させていただきました。</p>
+
+<p>そして、本記事本題の第2回。
+今回はざっくり、実際に何か手を動かしたいよね〜と話していましたが、ノーテーマ。
+その場で案を募ったところ、参加者の一人のIさんが「<strong>居酒屋のボトルキープを管理するアプリ</strong>という以前からのアイデアがあるんだけどどう？」とご提案くださり、IさんをドメインエキスパートとしてICONIXプロセスを進めてみる会となったのでした。</p>
+
+<a class="post-dummy-target" id="iconixプロセスの実践"></a><h2>ICONIXプロセスの実践</h2>
+
+<p>さあ、ここからがこの記事の本題です。</p>
+
+<a class="post-dummy-target" id="モデルを洗い出す"></a><h3>モデルを洗い出す</h3>
+
+<p>まずはドメインエキスパートのIさんに、ざっくりとした要求をヒアリングします</p>
+
+<p>要求</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">お客さんが居酒屋やスナックに行き、ボトルキープしたらそれを記録する。
+お客さんは後でキープしたボトルを確認する。
+お店側も、誰がどのボトルをキープしたか確認する。</code></pre></td></tr></table>
+</div>
+</div>
+<p>この要求を元に、以下のモデルを洗い出しました。<br />
+この時点ではのモデルはドラフト版で、後で修正します。</p>
+
+<ul>
+<li>restraunt(居酒屋やスナックの店舗)</li>
+<li>customer(ボトルキープするお客さん)</li>
+<li>keeped_bottle(キープされたボトル)</li>
+</ul>
+
+<p>ここで洗い出したモデルは、後のフェーズでもずっと使う「用語集」にもなります（DDDで言う「ユビキタス言語」）。</p>
+
+<a class="post-dummy-target" id="ユースケース図を書く"></a><h3>ユースケース図を書く</h3>
+
+<p>ユースケース駆動開発実践ガイドの中では「ユースケース記述の書き方」を中心に説明されていますが、これは各ユースケースを詳細に説明するためのもの
+ユースケースを洗い出すために、まずはユースケース図を作ります。</p>
+
+<p>ユースケース作成にあたり、さらに詳しく要求を洗い出していきます。</p>
+
+<a class="post-dummy-target" id="さらに詳しい要求"></a><h4>さらに詳しい要求</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">customer は keeped_bottle を記録する前に、システムへアカウント登録する。
+restraunt でボトルキープしたら、アプリにそれを登録する。
+restraunt が既にシステムに登録されていたらそこから選択し、登録されていなかったら自分で新たに追加する。
+また、再度 restraunt に訪れ、ボトルの中身を飲みきったり残量が減った場合には、それを記録する。
+restraunt も、自分自身のお店を登録する。
+さらに、お店の管理者として申請する。
+restraunt の管理者として正しいかどうかは administrator が確認し、承認する。
+restraunt は、管理者になっているお店の keeped_bottle一覧を確認する。
+キープから一定期間経過した場合に、restraunt は keeped_bottle を捨てることがある。</code></pre></td></tr></table>
+</div>
+</div>
+<p>後々クラス名としてそのまま使えるようにと英語でモデル名を命名していましたが、日本語のユースケースの中で使うのは結構難しいですね。。<br />
+二重の定義になってはしまいますが、はじめは日本語でモデル名を決めて、最終的なクラス図にアップデートするときに英語に訳していく方が扱いやすいのかなぁと思いました。</p>
+
+<p>そして作成したユースケース図がこちら。</p>
+
+<a class="post-dummy-target" id="ユースケース図-ドラフト版"></a><h4>ユースケース図（ドラフト版）</h4>
+
+<p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/usecase-diagram_draft.jpg alt=ユースケース図（手書き） class=lazyload><figcaption class=image-caption>ユースケース図（手書き）</figcaption></figure></p>
+
+<p>更新しやすいように PlantUML でも作成。（後日）
+<figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/usecase-diagram_draft.png alt=ユースケース図（PlantUML） class=lazyload><figcaption class=image-caption>ユースケース図（PlantUML）</figcaption></figure></p>
+
+<p>ここでさっそく、モデルに修正が必要なことに気付きました。<br />
+そう、サービスを管理する「administrator」が必要だったのです。</p>
+
+<a class="post-dummy-target" id="更新されたモデル"></a><h4>更新されたモデル</h4>
+
+<ul>
+<li>restraunt(居酒屋やスナックの店舗)</li>
+<li>customer(ボトルキープするお客さん)</li>
+<li>keeped_bottle(キープされたボトル)</li>
+<li>administrator（サービス管理者）</li>
+</ul>
+
+<p>このユースケース図もまだドラフト版です。
+以降のユースケース記述・ロバストネス図を踏まえて修正していきます。</p>
+
+<a class="post-dummy-target" id="ユースケース記述を書く"></a><h3>ユースケース記述を書く</h3>
+
+<p>次は各々のユースケースについてユースケース記述を書きます。
+勉強会では時間がないので（この記事全体のプロセスで2時間・・・！）、「ボトルをキープする」という、このサービスの核となるユースケースについて作成することにしました。
+ここまでのディスカッションの中でメンバー内でのサービスイメージは共通化されているし、そんなに難しくないはず・・・<br />
+と思っていたら、出るわ出るわ不明点w<br />
+さらにディスカッションを重ね、システムに求める挙動を明確にしてきました。</p>
+
+<a class="post-dummy-target" id="ボトルをキープする-に関するさらに詳しい要求"></a><h4>「ボトルをキープする」に関するさらに詳しい要求</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">customer はボトルキープ前にログインが必要。
+keeped_bottle を登録するときは、まずボトルの写真を撮り、次に店舗を選択する。
+選択可能な店舗は、位置情報を元に一覧表示される。
+一覧に今いる店舗がなければ、自分で登録する。</code></pre></td></tr></table>
+</div>
+</div>
+<a class="post-dummy-target" id="ユースケース記述-ボトルをキープする"></a><h4>ユースケース記述「ボトルをキープする」</h4>
+
+<p>以下のポイントに気をつけながら作成していきます。
+- ユーザーとシステムの両側を記述する
+- 基本コースと代替コースを記述する</p>
+
+<p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/usecase-description_draft.jpg alt=ユースケース記述（ホワイトボード） class=lazyload><figcaption class=image-caption>ユースケース記述（ホワイトボード）</figcaption></figure></p>
+
+<p>こちらも文字で転記しておきます。（後日）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">[基本コース]
+1. customer は「keepする」ボタンを押す
+2. システムは keep画面を表示する
+3. customer は名前を書いたボトルの写真を撮る
+4. システムは位置情報を取得し、近隣の restraunt 一覧を表示する
+5. customer は restraunt 一覧から自分の居る restraunt を選択する
+6. システムは keeped_bottle と restraunt と時刻を登録し、完了画面を表示する
+
+[代替コース]
+2-a. システムは、ログインしていない場合はログイン画面を表示する
+5-a. customer は、自分の居る restraunt が restraunt 一覧にない場合は restraunt 追加ボタンを押す
+5-b. システムは、 restraunt 追加画面を表示する</code></pre></td></tr></table>
+</div>
+</div>
+<p>当日は、ホワイトボードに書いてしまったため後から修正できずに苦しみましたw<br />
+ユースケース記述あたりからは、PCで作業してモニターに映す方が捗りそうです。</p>
+
+<a class="post-dummy-target" id="ロバストネス図を書く"></a><h3>ロバストネス図を書く</h3>
+
+<p>慣れない作業で、みんなで頭を捻りながらなんとか作成。
+ここでまたさらに、不明点が出てくる・・・
+特に「具体的にどんな画面なんだっけ？」という認識がメンバー間で統一されていないために混乱が起きました。
+というわけで、簡単なワイヤーをホワイトボードに書きながら、画面への要求を固めていきます。</p>
+
+<a class="post-dummy-target" id="ボトルをキープする-の画面に関する要求"></a><h4>「ボトルをキープする」の画面に関する要求</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">- サービスはスマホアプリのイメージ。
+- トップページには「keep する」ボタンが表示されていて、これをタップ後にログイン状態をチェックする。ログインしていなかったらログイン画面を表示し、ログイン後はそのまま写真撮影画面に遷移する。
+- ボトルの写真を撮影後、何かボタンを押す必要はなく restraunt 選択画面に遷移する。
+- restraunt 選択画面では近隣の restraunt 一覧が並んでおり、対象の restraunt をタップしたらそのまま登録される。
+- restraunt 選択画面に「追加する」ボタンが表示されており、これをタップすると restraunt 追加のユースケースに入る。</code></pre></td></tr></table>
+</div>
+</div>
+<a class="post-dummy-target" id="ロバストネス図-ボトルをキープする"></a><h4>ロバストネス図「ボトルをキープする」</h4>
+
+<p>特に以下の点に留意して作成します。
+- バウンダリ（画面）、エンティティ、コントローラの3種類のオブジェクトを描く
+- バウンダリとエンティティを名詞、コントローラを動詞として扱い、「名詞-名詞」で繋がらないようにする（「名詞-動詞」「動詞-動詞」はOK）</p>
+
+<p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/robustness_keep-bottle.jpg alt=ロバストネス図「ボトルをキープする」 class=lazyload><figcaption class=image-caption>ロバストネス図「ボトルをキープする」</figcaption></figure></p>
+
+<p>こちらも PlantUML で再度。</p>
+
+<p><figure><img src=/images/loading.svg data-sizes=auto data-src=/images/bottle_keeper/robustness_keep-bottle.png alt=ロバストネス図「ボトルをキープする」 class=lazyload><figcaption class=image-caption>ロバストネス図「ボトルをキープする」</figcaption></figure></p>
+
+<p>勉強会ではいきなり図を書き始めてアワアワと混乱しましたが、PlantUML で書いてみて、最初にオブジェクトを洗い出しておけば書きやすかったのかーと気付きました。次回に生かそう。</p>
+
+<a class="post-dummy-target" id="まとめ-感想"></a><h2>まとめ・感想</h2>
+
+<p>さてはて、ここまでやってみると、ユースケース図もユースケース記述にも若干の不足がありますね！<br />
+また、モデルにも属性や振る舞いを追記していけそうです。<br />
+この修正作業は、次回開催時にみんなでやっていこうと思います。</p>
+
+<a class="post-dummy-target" id="おわりに"></a><h2>おわりに</h2>
+
+<p>勉強会に参加してくださった皆さん、特にみんなを導いてくれた Eさん・Kさんありがとうございます！<br />
+そしてこの勉強会のきっかけとなった「ユースケース駆動開発実践ガイド」を贈ってくださったNさんにも改めてお礼申し上げます。<br />
+次回は5月かな？<br />
+開催後はまた記事にするつもりです。頑張ります。</p>
+
+        </div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>This article is updated with 2021-04-17</span>
+            </div>
+            <div class="post-info-license">
+                
+            </div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md">
+                
+                    
+                        <span><a class="link-to-markdown" href="https://tomoeine.github.io/2021/04/software-design-miyazaki-202104/index.md" target="_blank"></a></span>
+                    
+                
+            </div>
+            <div class="post-info-share">
+                
+                    <span>
+    
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomoeine.github.io%2f2021%2f04%2fsoftware-design-miyazaki-202104%2f&amp;text=ICONIX%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%ef%bc%88%e9%80%94%e4%b8%ad%e3%81%be%e3%81%a7%ef%bc%89%e5%ae%9f%e8%b7%b5%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f&amp;via=tomoeine" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter fa-fw"></i>
+        </a>
+    
+    
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomoeine.github.io%2f2021%2f04%2fsoftware-design-miyazaki-202104%2f" target="_blank" title="Share on Facebook">
+            <i class="fab fa-facebook-square fa-fw"></i>
+        </a>
+    
+    
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomoeine.github.io%2f2021%2f04%2fsoftware-design-miyazaki-202104%2f&amp;title=ICONIX%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%ef%bc%88%e9%80%94%e4%b8%ad%e3%81%be%e3%81%a7%ef%bc%89%e5%ae%9f%e8%b7%b5%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f" target="_blank" title="Share on Reddit">
+            <i class="fab fa-reddit fa-fw"></i>
+        </a>
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section>
+            
+                
+                    <span class="tag">
+                        <a href="https://tomoeine.github.io/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/"><i class="fas fa-tag fa-fw"></i>勉強会</a>
+                    </span>
+                
+                    <span class="tag">
+                        <a href="https://tomoeine.github.io/tags/iconix%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9/"><i class="fas fa-tag fa-fw"></i>ICONIXプロセス</a>
+                    </span>
+                
+            
+        </section>
+        <section>
+            <span><a href="javascript:window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="https://tomoeine.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+            <a href="https://tomoeine.github.io/2019/12/sier-career/" class="prev" rel="prev" title="「SIer でスキルが身につかない？」を、Web系フリーランスになった今振り返る"><i class="fas fa-angle-left fa-fw"></i>「SIer でスキルが身につかない？」を、Web系フリーランスになった今振り返る</a>
+        
+        
+    </div>
+</div>
+
+        <div class="post-comment">
+            
+            
+
+            
+        </div>
+    </article></div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        <div class="copyright-line">
+            Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
+        </div>
+        <div class="copyright-line">
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://tomoeine.github.io/">ともえ</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+<script src="/js/lib/jquery/jquery.slim.min.min.js"></script>
+<script src="/js/lib/lazysizes/lazysizes.min.min.js"></script>
+<script src="/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js"></script><script>window.scroll = new SmoothScroll('[data-scroll]', {speed: 300, speedAsDuration: true});</script>
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+<script src="/js/blog.min.js"></script>
+
+
+    
+</div>
+        <a href="#" class="dynamic-to-top" id="dynamic-to-top" data-scroll><span>&nbsp;</span></a>
+    </body>
+</html>
