@@ -57,9 +57,9 @@ https://zenn.dev/tomoeine/articles/2babb554aa0478
 この要求を元に、以下のモデルを洗い出しました。  
 この時点ではのモデルはドラフト版で、後で修正します。
 
-- restraunt(居酒屋やスナックの店舗)
+- restaurant(居酒屋やスナックの店舗)
 - customer(ボトルキープするお客さん)
-- keeped_bottle(キープされたボトル)
+- kept_bottle(キープされたボトル)
 
 ここで洗い出したモデルは、後のフェーズでもずっと使う「用語集」にもなります（DDDで言う「ユビキタス言語」）。
 
@@ -71,15 +71,15 @@ https://zenn.dev/tomoeine/articles/2babb554aa0478
 
 #### さらに詳しい要求
 ```
-customer は keeped_bottle を記録する前に、システムへアカウント登録する。
-restraunt でボトルキープしたら、アプリにそれを登録する。
-restraunt が既にシステムに登録されていたらそこから選択し、登録されていなかったら自分で新たに追加する。
-また、再度 restraunt に訪れ、ボトルの中身を飲みきったり残量が減った場合には、それを記録する。
-restraunt も、自分自身のお店を登録する。
+customer は kept_bottle を記録する前に、システムへアカウント登録する。
+restaurant でボトルキープしたら、アプリにそれを登録する。
+restaurant が既にシステムに登録されていたらそこから選択し、登録されていなかったら自分で新たに追加する。
+また、再度 restaurant に訪れ、ボトルの中身を飲みきったり残量が減った場合には、それを記録する。
+restaurant も、自分自身のお店を登録する。
 さらに、お店の管理者として申請する。
-restraunt の管理者として正しいかどうかは administrator が確認し、承認する。
-restraunt は、管理者になっているお店の keeped_bottle一覧を確認する。
-キープから一定期間経過した場合に、restraunt は keeped_bottle を捨てることがある。
+restaurant の管理者として正しいかどうかは administrator が確認し、承認する。
+restaurant は、管理者になっているお店の kept_bottle一覧を確認する。
+キープから一定期間経過した場合に、restaurant は kept_bottle を捨てることがある。
 ```
 
 後々クラス名としてそのまま使えるようにと英語でモデル名を命名していましたが、日本語のユースケースの中で使うのは結構難しいですね。。  
@@ -97,9 +97,9 @@ restraunt は、管理者になっているお店の keeped_bottle一覧を確�
 そう、サービスを管理する「administrator」が必要だったのです。
 
 #### 更新されたモデル
-- restraunt(居酒屋やスナックの店舗)
+- restaurant(居酒屋やスナックの店舗)
 - customer(ボトルキープするお客さん)
-- keeped_bottle(キープされたボトル)
+- kept_bottle(キープされたボトル)
 - administrator（サービス管理者）
 
 このユースケース図もまだドラフト版です。
@@ -116,7 +116,7 @@ restraunt は、管理者になっているお店の keeped_bottle一覧を確�
 #### 「ボトルをキープする」に関するさらに詳しい要求
 ```
 customer はボトルキープ前にログインが必要。
-keeped_bottle を登録するときは、まずボトルの写真を撮り、次に店舗を選択する。
+kept_bottle を登録するときは、まずボトルの写真を撮り、次に店舗を選択する。
 選択可能な店舗は、位置情報を元に一覧表示される。
 一覧に今いる店舗がなければ、自分で登録する。
 ```
@@ -137,14 +137,14 @@ keeped_bottle を登録するときは、まずボトルの写真を撮り、次
 1. customer は「keepする」ボタンを押す
 2. システムは keep画面を表示する
 3. customer は名前を書いたボトルの写真を撮る
-4. システムは位置情報を取得し、近隣の restraunt 一覧を表示する
-5. customer は restraunt 一覧から自分の居る restraunt を選択する
-6. システムは keeped_bottle と restraunt と時刻を登録し、完了画面を表示する
+4. システムは位置情報を取得し、近隣の restaurant 一覧を表示する
+5. customer は restaurant 一覧から自分の居る restaurant を選択する
+6. システムは kept_bottle と restaurant と時刻を登録し、完了画面を表示する
 
 [代替コース]
 2-a. システムは、ログインしていない場合はログイン画面を表示する
-5-a. customer は、自分の居る restraunt が restraunt 一覧にない場合は restraunt 追加ボタンを押す
-5-b. システムは、 restraunt 追加画面を表示する
+5-a. customer は、自分の居る restaurant が restaurant 一覧にない場合は restaurant 追加ボタンを押す
+5-b. システムは、 restaurant 追加画面を表示する
 
 ```
 
@@ -163,9 +163,9 @@ keeped_bottle を登録するときは、まずボトルの写真を撮り、次
 ```
 - サービスはスマホアプリのイメージ。
 - トップページには「keep する」ボタンが表示されていて、これをタップ後にログイン状態をチェックする。ログインしていなかったらログイン画面を表示し、ログイン後はそのまま写真撮影画面に遷移する。
-- ボトルの写真を撮影後、何かボタンを押す必要はなく restraunt 選択画面に遷移する。
-- restraunt 選択画面では近隣の restraunt 一覧が並んでおり、対象の restraunt をタップしたらそのまま登録される。
-- restraunt 選択画面に「追加する」ボタンが表示されており、これをタップすると restraunt 追加のユースケースに入る。
+- ボトルの写真を撮影後、何かボタンを押す必要はなく restaurant 選択画面に遷移する。
+- restaurant 選択画面では近隣の restaurant 一覧が並んでおり、対象の restaurant をタップしたらそのまま登録される。
+- restaurant 選択画面に「追加する」ボタンが表示されており、これをタップすると restaurant 追加のユースケースに入る。
 ```
 
 #### ロバストネス図「ボトルをキープする」
